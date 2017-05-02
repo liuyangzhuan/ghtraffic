@@ -23,7 +23,7 @@ def ghtraffic(argv):
     clone_records = {}
 
     # read previously saved record
-    fname = args.repo.strip()+"-stats.org"
+    fname = args.repo.strip()+"-traffic.org"
     if os.path.isfile(fname):
         f = open(fname, 'r')
         for i in range(3): # skip first three lines
