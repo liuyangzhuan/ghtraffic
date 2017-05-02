@@ -57,7 +57,7 @@ def ghtraffic(argv):
         clone_records[lst['timestamp'][0:10]] = (lst['count'], lst['uniques'])
 
     f = open(fname, 'w')
-    f.write(args.repo+'\n')
+    f.write('* '+args.repo+' clones\n')
     f.write('|       Time |   Count | Uniques |\n')
     f.write('|------------+---------+---------|\n')
     totcnt = 0
