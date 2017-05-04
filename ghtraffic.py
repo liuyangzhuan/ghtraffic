@@ -46,7 +46,13 @@ def ghtraffic():
         else:
             clones = response['clones']
             for lst in clones:
-                clone_records[lst['timestamp'][0:10]] = (lst['count'], lst['uniques'])
+                k = lst['timestamp'][0:10]
+                c = lst['count']
+                u = lst['uniques']
+                if k in clone_records:
+                    c = max(c, clone_records[k][0])
+                    u = max(u, clone_records[k][1])
+                clone_records[k] = (c,u)
 
             f = open(fname, 'w')
             f.write('* '+repo['repo']+' clones\n')
