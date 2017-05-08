@@ -12,6 +12,7 @@ def ghtraffic():
     repos = [{'org':'AMReX-Codes', 'repo':'amrex'},
              {'org':'AMReX-Astro', 'repo':'Castro'},
              {'org':'AMReX-Astro', 'repo':'Maestro'},
+             {'org':'AMReX-Astro', 'repo':'Nyx'},
              {'org':'BoxLib-Codes', 'repo':'BoxLib'}]
 
     for repo in repos:
