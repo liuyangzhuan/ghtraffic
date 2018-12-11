@@ -7,14 +7,9 @@ import getpass
 
 def ghtraffic():
     pwd = getpass.getpass()
-    usrpwd = ('WeiqunZhang',pwd)
+    usrpwd = ('liuyangzhuan',pwd)
 
-    repos = [{'org':'AMReX-Codes', 'repo':'amrex'},
-             {'org':'AMReX-Astro', 'repo':'Castro'},
-             {'org':'AMReX-Astro', 'repo':'Maestro'},
-             {'org':'AMReX-Astro', 'repo':'Nyx'},
-             {'org':'BoxLib-Codes', 'repo':'BoxLib'},
-             {'org':'ECP-WarpX', 'repo':'WarpX'}]
+    repos = [{'org':'liuyangzhuan', 'repo':'ButterflyPACK'}]
 
     for repo in repos:
         clone_records = {}
