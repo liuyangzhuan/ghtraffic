@@ -6,8 +6,20 @@ import requests
 import getpass
 
 def ghtraffic():
-    pwd = getpass.getpass()
-    usrpwd = ('liuyangzhuan',pwd)
+
+    f = open('mypwd.txt')
+    line = f.readline()
+    credentials=line.split(':')
+#    print credentials
+    usr=credentials[0]
+    pwd=credentials[1]
+
+
+ 
+   
+#    pwd = getpass.getpass()
+    usrpwd = (usr,pwd)
+
 
     repos = [{'org':'liuyangzhuan', 'repo':'ButterflyPACK'}]
 
