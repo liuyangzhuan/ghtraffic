@@ -21,7 +21,9 @@ def ghtraffic():
     usrpwd = (usr,pwd)
 
 
-    repos = [{'org':'liuyangzhuan', 'repo':'ButterflyPACK'}]
+    repos = [{'org':'liuyangzhuan', 'repo':'ButterflyPACK'},
+            {'org':'xiaoyeli', 'repo':'superlu_dist'},
+            {'org':'xiaoyeli', 'repo':'superlu'}]
 
     for repo in repos:
         clone_records = {}
