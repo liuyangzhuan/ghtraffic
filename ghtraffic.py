@@ -7,18 +7,19 @@ import getpass
 
 def ghtraffic():
 
-    f = open('mypwd.txt')
+#    f = open('mypwd.txt')
+#    line = f.readline()
+#    credentials=line.split(':')
+#    usr=credentials[0]
+#    pwd=credentials[1]
+##    pwd = getpass.getpass()
+#    usrpwd = (usr,pwd)
+
+    f = open('mytoken.txt')
     line = f.readline()
-    credentials=line.split(':')
-#    print credentials
-    usr=credentials[0]
-    pwd=credentials[1]
+    tokens=line.split(':')
+    mytoken=tokens[0]
 
-
- 
-   
-#    pwd = getpass.getpass()
-    usrpwd = (usr,pwd)
 
 
     repos = [{'org':'liuyangzhuan', 'repo':'ButterflyPACK'},
@@ -49,7 +50,9 @@ def ghtraffic():
             f.close()
 
         ghurl = 'https://api.github.com/repos/'+repo['org']+'/'+repo['repo']+'/traffic/clones'
-        response = requests.get(ghurl, auth=usrpwd)
+#        response = requests.get(ghurl, auth=usrpwd)
+        response = requests.get(ghurl, headers={'Authorization':mytoken})
+
         response = response.json()
 
         if response.get('message'):
