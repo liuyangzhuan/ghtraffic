@@ -23,6 +23,7 @@ def ghtraffic():
 
 
     repos = [{'org':'liuyangzhuan', 'repo':'ButterflyPACK'},
+            {'org':'xiaoyeli', 'repo':'GPTune'},
             {'org':'xiaoyeli', 'repo':'superlu_dist'},
             {'org':'xiaoyeli', 'repo':'superlu'}]
 
