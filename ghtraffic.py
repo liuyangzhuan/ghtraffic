@@ -4,6 +4,7 @@ import os
 import sys
 import requests
 import getpass
+import datetime
 
 def ghtraffic():
 
@@ -19,7 +20,13 @@ def ghtraffic():
     line = f.readline()
     tokens=line.split(':')
     mytoken=tokens[0]
-
+    today=f"{datetime.datetime.now():%Y-%m-%d}"
+    year=int(today[0:4])
+    month=int(today[5:7])
+    if(month>=10):
+        FY=year+1
+    else:
+        FY=year
     repos = [{'org':'liuyangzhuan', 'repo':'ButterflyPACK'},
             {'org':'pghysels', 'repo':'STRUMPACK'},
             {'org':'xiaoyeli', 'repo':'GPTune'},
@@ -31,6 +38,7 @@ def ghtraffic():
 
         # read previously saved record
         fname = repo['repo']+"-traffic.org"
+        fname1 = "FY"+str(FY)+"_"+repo['repo']+"-traffic.org"
         if os.path.isfile(fname):
             f = open(fname, 'r')
             for i in range(3): # skip first three lines
@@ -81,6 +89,25 @@ def ghtraffic():
             f.write('|------------+---------+---------|\n')
             f.write('| {0:10s} | {1:7d} | {2:7d} |\n'.format('Total',totcnt,totunq))
             f.close()
+
+
+            f = open(fname1, 'w')
+            f.write('* '+repo['repo']+' clones\n')
+            f.write('|       Time |   Count | Uniques |\n')
+            f.write('|------------+---------+---------|\n')
+            totcnt = 0
+            totunq = 0
+            for k, v in sorted(clone_records.items()):
+                year=int(k[0:4])
+                month=int(k[5:7])
+                if((year==FY and month<10) or (year==FY-1 and month>=10)):
+                    f.write('| {0:10s} | {1:7d} | {2:7d} |\n'.format(k,v[0],v[1]))
+                    totcnt += v[0]
+                    totunq += v[1]
+            f.write('|------------+---------+---------|\n')
+            f.write('| {0:10s} | {1:7d} | {2:7d} |\n'.format('Total',totcnt,totunq))
+            f.close()
+
 
 if __name__ == "__main__":
     ghtraffic()
