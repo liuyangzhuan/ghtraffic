@@ -29,7 +29,7 @@ def ghtraffic():
         FY=year
     repos = [{'org':'liuyangzhuan', 'repo':'ButterflyPACK'},
             {'org':'pghysels', 'repo':'STRUMPACK'},
-            {'org':'xiaoyeli', 'repo':'GPTune'},
+            {'org':'gptune', 'repo':'GPTune'},
             {'org':'xiaoyeli', 'repo':'superlu_dist'},
             {'org':'xiaoyeli', 'repo':'superlu'}]
 
