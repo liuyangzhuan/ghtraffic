@@ -31,7 +31,7 @@ def ghtraffic():
             {'org':'pghysels', 'repo':'STRUMPACK'},
             {'org':'gptune', 'repo':'GPTune'},
             {'org':'xiaoyeli', 'repo':'superlu_dist'},
-            {'org':'xiaoyeli', 'repo':'superlu'}]
+            {'org':'xiaoyeli', 'repo':'superlu'}],
             {'org':'xiaoyeli', 'repo':'superlu_mt'}]
 
     for repo in repos:
